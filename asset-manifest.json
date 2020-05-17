@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/pappr/static/css/main.cd15593c.chunk.css",
-    "main.js": "/pappr/static/js/main.bb735ac9.chunk.js",
-    "main.js.map": "/pappr/static/js/main.bb735ac9.chunk.js.map",
+    "main.js": "/pappr/static/js/main.e8a999fa.chunk.js",
+    "main.js.map": "/pappr/static/js/main.e8a999fa.chunk.js.map",
     "runtime-main.js": "/pappr/static/js/runtime-main.6b294b58.js",
     "runtime-main.js.map": "/pappr/static/js/runtime-main.6b294b58.js.map",
-    "static/js/2.06fdddd3.chunk.js": "/pappr/static/js/2.06fdddd3.chunk.js",
-    "static/js/2.06fdddd3.chunk.js.map": "/pappr/static/js/2.06fdddd3.chunk.js.map",
+    "static/js/2.1dbfdac1.chunk.js": "/pappr/static/js/2.1dbfdac1.chunk.js",
+    "static/js/2.1dbfdac1.chunk.js.map": "/pappr/static/js/2.1dbfdac1.chunk.js.map",
     "index.html": "/pappr/index.html",
-    "precache-manifest.54918d1424b1bfcbf428553eb587e18a.js": "/pappr/precache-manifest.54918d1424b1bfcbf428553eb587e18a.js",
+    "precache-manifest.6766e0f565b1c68fcb295d80a8856499.js": "/pappr/precache-manifest.6766e0f565b1c68fcb295d80a8856499.js",
     "service-worker.js": "/pappr/service-worker.js",
     "static/css/main.cd15593c.chunk.css.map": "/pappr/static/css/main.cd15593c.chunk.css.map",
-    "static/js/2.06fdddd3.chunk.js.LICENSE.txt": "/pappr/static/js/2.06fdddd3.chunk.js.LICENSE.txt"
+    "static/js/2.1dbfdac1.chunk.js.LICENSE.txt": "/pappr/static/js/2.1dbfdac1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6b294b58.js",
-    "static/js/2.06fdddd3.chunk.js",
+    "static/js/2.1dbfdac1.chunk.js",
     "static/css/main.cd15593c.chunk.css",
-    "static/js/main.bb735ac9.chunk.js"
+    "static/js/main.e8a999fa.chunk.js"
   ]
 }
