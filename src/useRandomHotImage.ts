@@ -34,13 +34,13 @@ export const useRandomHotImage = () => {
     const [image, setFoundImage] = useState<string>()
     const access = window.localStorage.getItem('access');
     const subs = window.localStorage.getItem('subs');
-    devLog(subs)
+    let availableSubs = subs ? JSON.parse(subs) : defaultSubs
+    const selectedSubreddit = randomValueFromArray(availableSubs)
+    devLog(availableSubs)
     useEffect(() => {
         if (!access) {
             return
         }
-        let availableSubs = subs ? JSON.parse(subs) : defaultSubs
-        const selectedSubreddit = randomValueFromArray(availableSubs)
         devLog(`Selected random subreddit ${selectedSubreddit} from ${availableSubs}`)
         const fetchHot = async () => {
             devLog('useEffect start fetch')
@@ -51,9 +51,10 @@ export const useRandomHotImage = () => {
             devLog('useEffect done')
         }
         fetchHot().catch(devLog)
-    }, [access, subs])
+    }, [access, availableSubs])
     return {
         image,
-        isLoading: !image
+        isLoading: !image,
+        subReddit: selectedSubreddit
     }
 };
