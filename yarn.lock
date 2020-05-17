@@ -2837,7 +2837,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:^2.6.2":
+"async@npm:^2.6.1, async@npm:^2.6.2":
   version: 2.6.3
   resolution: "async@npm:2.6.3"
   dependencies:
@@ -3905,7 +3905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.11.0, commander@npm:^2.20.0":
+"commander@npm:^2.11.0, commander@npm:^2.18.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: eae98d97c0a3a59096be01418e7d882978bbc0c9b8921db75e9907a738dd764ecca833950a883fa1a81d9149e7492bc65af0adaef17f5b112558c176089062bd
@@ -5035,6 +5035,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"email-addresses@npm:^3.0.1":
+  version: 3.1.0
+  resolution: "email-addresses@npm:3.1.0"
+  checksum: 178ad1d97589bbc5169f6285641c69b743efb4b647a6570a122d24f1e70d8e762ed7661d9232a9643291457c6f1b7dcb7ba703c930430d5c4df77c6aeaed3339
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:^7.0.1, emoji-regex@npm:^7.0.2":
   version: 7.0.3
   resolution: "emoji-regex@npm:7.0.3"
@@ -5826,6 +5833,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"filename-reserved-regex@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "filename-reserved-regex@npm:1.0.0"
+  checksum: b59c483b0fabfd1972a931be91c794e19647fc923d5a8131cb40eed55d62b72444e8a7c78a994cf56c2dc34513772136fb22a4d07c08c49f7277a88f4bdfd00d
+  languageName: node
+  linkType: hard
+
+"filenamify-url@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "filenamify-url@npm:1.0.0"
+  dependencies:
+    filenamify: ^1.0.0
+    humanize-url: ^1.0.0
+  checksum: c3d81f642fe5b1946cbc12700f6a659afbdd845b4c0c36b80a5f10a88c8b5d7eba7202b346c774ec7289143b5f73c6378765c86214fa57136bbbc8e9b7bd0658
+  languageName: node
+  linkType: hard
+
+"filenamify@npm:^1.0.0":
+  version: 1.2.1
+  resolution: "filenamify@npm:1.2.1"
+  dependencies:
+    filename-reserved-regex: ^1.0.0
+    strip-outer: ^1.0.0
+    trim-repeated: ^1.0.0
+  checksum: 611793163a64bdfa3d30a38ff9f5c9178218e5b3b0ad953b942f9ce312e775b6174ab2b8c876f0e03ed7fca403dfdeb49712aa051d399a9d521f4c184f75df45
+  languageName: node
+  linkType: hard
+
 "filesize@npm:6.0.1":
   version: 6.0.1
   resolution: "filesize@npm:6.0.1"
@@ -6266,6 +6301,23 @@ fsevents@^1.2.7:
   dependencies:
     assert-plus: ^1.0.0
   checksum: dc1d4184d1b3ea565b2f223542615bd2c16905563827172e2ca9a0e2e0dcc1173407b0523ca15dbd53bf8b75b4485a1815ccb0bfeb4668e1d2520899cb5c57f5
+  languageName: node
+  linkType: hard
+
+"gh-pages@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "gh-pages@npm:2.2.0"
+  dependencies:
+    async: ^2.6.1
+    commander: ^2.18.0
+    email-addresses: ^3.0.1
+    filenamify-url: ^1.0.0
+    fs-extra: ^8.1.0
+    globby: ^6.1.0
+  bin:
+    gh-pages: bin/gh-pages.js
+    gh-pages-clean: bin/gh-pages-clean.js
+  checksum: b57c061cd47d4c72e3d6c4fd1c1ed7b59862e9a07d397756a8a60674d65b42d30250960ac0a45c752de39d7d9ca9b4d8a7e48c45e8d794b8e8ad1e34c010c689
   languageName: node
   linkType: hard
 
@@ -6760,6 +6812,16 @@ fsevents@^1.2.7:
   version: 1.0.0
   resolution: "https-browserify@npm:1.0.0"
   checksum: 19384f98302d444e2da979e348c027afa2e2aa835deebc98ce9252facc08cd1fd0d776f1e2a9c538d9ff1e2e286be556d315f7b5d44d499746dbfaf4844929db
+  languageName: node
+  linkType: hard
+
+"humanize-url@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "humanize-url@npm:1.0.1"
+  dependencies:
+    normalize-url: ^1.0.0
+    strip-url-auth: ^1.0.0
+  checksum: 142c38edd8d77d78c13c4422d7a3ddad817aa0861fbbc4d09bb615c61b37b1ec37d871f6426e002031bb6cf7a9ab87e1120c3479c9c35b62aa9b990d2067a8aa
   languageName: node
   linkType: hard
 
@@ -9275,7 +9337,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"normalize-url@npm:1.9.1":
+"normalize-url@npm:1.9.1, normalize-url@npm:^1.0.0":
   version: 1.9.1
   resolution: "normalize-url@npm:1.9.1"
   dependencies:
@@ -9784,6 +9846,7 @@ fsevents@^1.2.7:
     "@types/node": ^12.0.0
     "@types/react": ^16.9.0
     "@types/react-dom": ^16.9.0
+    gh-pages: ^2.2.0
     react: ^16.13.1
     react-dom: ^16.13.1
     react-scripts: 3.4.1
@@ -12962,6 +13025,22 @@ resolve@1.15.0:
   languageName: node
   linkType: hard
 
+"strip-outer@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "strip-outer@npm:1.0.1"
+  dependencies:
+    escape-string-regexp: ^1.0.2
+  checksum: ab1ecfc189f51fcc6f75f5622bc31687c9f9cc69b3bf386a5c9266a29070bf6e2fadafba96c16859f3cdd441dfc3b1faa7cb122081fbb98079740ca1b6780292
+  languageName: node
+  linkType: hard
+
+"strip-url-auth@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "strip-url-auth@npm:1.0.1"
+  checksum: a1b5cccd4ce846ff20a95cf139190910338b843834dcc91211796fda803d05feb9eddf7ea3184aa5202eb2e1c136fe300ea39d94ce984f71ac32eefec2555c6e
+  languageName: node
+  linkType: hard
+
 "style-loader@npm:0.23.1":
   version: 0.23.1
   resolution: "style-loader@npm:0.23.1"
@@ -13298,6 +13377,15 @@ resolve@1.15.0:
   dependencies:
     punycode: ^2.1.0
   checksum: 2790d3e6251ccc357242d2034214eb02c103794a6f3f570d6baae9debf1858de1604aeb55049c4bb178cc1a2aba501d2ae0970ea8503cd25612dd346bcfc9dd5
+  languageName: node
+  linkType: hard
+
+"trim-repeated@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "trim-repeated@npm:1.0.0"
+  dependencies:
+    escape-string-regexp: ^1.0.2
+  checksum: 7d12146480cbbaf76981ef4c393c7a62a1eba469f8130bdc8ebf240b79a21332dde73428170286951303c04e2d471b2c3c64daf974036d12f08cd823fb909724
   languageName: node
   linkType: hard
 
