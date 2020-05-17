@@ -4,16 +4,11 @@ import {
     Switch,
     Route,
     useLocation,
-    useHistory
+    useHistory,
+    Redirect
 } from "react-router-dom";
 import {parse, stringify} from 'qs'
 import './App.css';
-
-// access_token: "27606529-F7VKPALu_xwg_2DvzSQ9N6iwuns"
-// expires_in: 3600
-// refresh_token: "27606529-FEjKvQSbv9ZNfhRPVj6EaY7OpUM"
-// scope: "read"
-// token_type: "bearer"
 
 const corsPrefix = process.env.NODE_ENV === 'production' ? '' : 'https://cors-anywhere.herokuapp.com/'
 const CLIENT_ID = process.env.NODE_ENV === 'production' ? 'NxTWOwoh3zE_GA' : process.env.REACT_APP_REDDIT_CLIENT_ID
@@ -188,8 +183,9 @@ function App() {
         <div className="App">
             <Router>
                 <Switch>
-                    <Route path="/auth" component={Auth} />
+                    <Route exact path="/auth" component={Auth} />
                     <Route path="/" component={Home} />
+                    <Redirect to="/" />
                 </Switch>
             </Router>
         </div>
