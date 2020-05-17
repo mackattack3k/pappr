@@ -1,0 +1,60 @@
+import {useEffect, useState} from "react";
+import {devLog, randomValueFromArray} from "./utils";
+import {API_URL, CLIENT_ID} from "./config";
+import {useLocalStorage} from "./useLocalStorage";
+
+interface Post {
+    data: {
+        url: string;
+    }
+}
+
+const fetchImage = async (fromSubreddit: string, accessToken: string) => {
+    try {
+        const r = await fetch(`${API_URL}r/${fromSubreddit}/hot`, {
+            headers: {
+                Authorization: `bearer ${accessToken}`,
+                'User-Agent': `Web:${CLIENT_ID}:0.0.1 (by /u/mackattack3k)`
+            }
+        });
+        const jsonR = await JSON.parse(await r.text());
+        devLog({jsonResponse: jsonR})
+        const posts = jsonR.data.children as Post[]
+        devLog({allPosts: posts})
+        const images = posts.map(post => post.data.url)
+        const randomImage = randomValueFromArray(images)
+        devLog({randomImage})
+        return randomImage;
+    } catch (e) {
+        return 'nodata';
+    }
+}
+
+const defaultSubs = ['earthporn', 'wallpapers']
+export const useRandomHotImage = () => {
+    const [image, setFoundImage] = useState<string>()
+    const [access] = useLocalStorage('access', 'loading');
+    const [subs] = useLocalStorage('subs', 'loading');
+    devLog(subs)
+    useEffect(() => {
+        if (!access) {
+            return
+        }
+        let availableSubs = subs || defaultSubs
+        const selectedSubreddit = randomValueFromArray(availableSubs)
+        devLog(`Selected random subreddit ${selectedSubreddit} from ${availableSubs}`)
+        const fetchHot = async () => {
+            devLog('useEffect start fetch')
+            devLog(access)
+            const accessToken = access.access_token
+            const image = await fetchImage(selectedSubreddit, accessToken)
+            setFoundImage(image)
+            devLog('useEffect done')
+        }
+        fetchHot().catch(devLog)
+    }, [access, subs])
+    return {
+        image,
+        isLoading: !image
+    }
+};
