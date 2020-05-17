@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {devLog, randomValueFromArray} from "./utils";
 import {API_URL, CLIENT_ID} from "./config";
-import {useLocalStorage} from "./useLocalStorage";
 
 interface Post {
     data: {
@@ -33,20 +32,20 @@ const fetchImage = async (fromSubreddit: string, accessToken: string) => {
 const defaultSubs = ['earthporn', 'wallpapers']
 export const useRandomHotImage = () => {
     const [image, setFoundImage] = useState<string>()
-    const [access] = useLocalStorage('access', 'loading');
-    const [subs] = useLocalStorage('subs', 'loading');
+    const access = window.localStorage.getItem('access');
+    const subs = window.localStorage.getItem('subs');
     devLog(subs)
     useEffect(() => {
         if (!access) {
             return
         }
-        let availableSubs = subs || defaultSubs
+        let availableSubs = subs ? JSON.parse(subs) : defaultSubs
         const selectedSubreddit = randomValueFromArray(availableSubs)
         devLog(`Selected random subreddit ${selectedSubreddit} from ${availableSubs}`)
         const fetchHot = async () => {
             devLog('useEffect start fetch')
             devLog(access)
-            const accessToken = access.access_token
+            const accessToken = JSON.parse(access).access_token
             const image = await fetchImage(selectedSubreddit, accessToken)
             setFoundImage(image)
             devLog('useEffect done')
