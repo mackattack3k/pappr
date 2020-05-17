@@ -47,7 +47,7 @@ function App() {
             <Router basename={process.env.PUBLIC_URL}>
                 <Switch>
                     <Route exact path="/auth" component={Auth} />
-                    <Route path="/" component={Home} />
+                    <Route exact path="/" component={Home} />
                     <Redirect to="/" />
                 </Switch>
             </Router>
