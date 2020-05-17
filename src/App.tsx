@@ -57,7 +57,7 @@ function useHot() {
             devLog('useEffect done')
         }
         fetchHot().catch(devLog)
-    }, [])
+    }, [selectedSubreddit])
     return {
         image,
         isLoading: !image
