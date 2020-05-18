@@ -8,9 +8,16 @@ const Home = () => {
   devLog({ access, authUrl });
   if (!access) {
     return (
-      <div>
-        Authenticate with your reddit account to fetch images. We only require
-        read access to posts.<a href={authUrl}>Log in here</a>
+      <div className="home">
+        <div>
+          Authenticate with your reddit account to fetch images. We only require
+          read access to posts.
+        </div>
+        <div>
+          <a className="link" href={authUrl}>
+            Log in with your reddit account
+          </a>
+        </div>
       </div>
     );
   }

@@ -81,8 +81,8 @@ const Auth = () => {
     );
     history.push("/");
   };
-  getBearer();
-  return <div>Getting bearer</div>;
+  getBearer().then(devLog);
+  return <div className="home">Checking authentication</div>;
 };
 
 function App() {

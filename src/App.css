@@ -26,3 +26,20 @@ body,
   justify-content: center;
   align-items: center;
 }
+
+.home {
+  height: 100%;
+  width: 100%;
+  background-color: #282c34;
+  color: ghostwhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.link {
+  font-size: 2rem;
+  color: antiquewhite;
+  text-decoration: underline;
+}
