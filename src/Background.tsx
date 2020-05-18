@@ -19,7 +19,9 @@ const Background = () => {
     return (
       <div className="loading">
         <h1>Error getting image</h1>
-        <button onClick={clearSavedData}>Clear saved data</button>
+        <button className="button" onClick={clearSavedData}>
+          Clear saved data
+        </button>
       </div>
     );
   }

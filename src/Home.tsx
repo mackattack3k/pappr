@@ -13,11 +13,9 @@ const Home = () => {
           Authenticate with your reddit account to fetch images. We only require
           read access to posts.
         </div>
-        <div>
-          <a className="link" href={authUrl}>
-            Log in with your reddit account
-          </a>
-        </div>
+        <a className="button" href={authUrl}>
+          Log in with your reddit account
+        </a>
       </div>
     );
   }
