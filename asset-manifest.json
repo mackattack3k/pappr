@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/pappr/static/css/main.45cbbad0.chunk.css",
-    "main.js": "/pappr/static/js/main.48eb51f6.chunk.js",
-    "main.js.map": "/pappr/static/js/main.48eb51f6.chunk.js.map",
+    "main.css": "/pappr/static/css/main.ffdb62b3.chunk.css",
+    "main.js": "/pappr/static/js/main.b5a726c0.chunk.js",
+    "main.js.map": "/pappr/static/js/main.b5a726c0.chunk.js.map",
     "runtime-main.js": "/pappr/static/js/runtime-main.6b294b58.js",
     "runtime-main.js.map": "/pappr/static/js/runtime-main.6b294b58.js.map",
     "static/js/2.7f20bc93.chunk.js": "/pappr/static/js/2.7f20bc93.chunk.js",
     "static/js/2.7f20bc93.chunk.js.map": "/pappr/static/js/2.7f20bc93.chunk.js.map",
     "index.html": "/pappr/index.html",
-    "precache-manifest.5463fbf7ab15f9d4325bcfd5959757bf.js": "/pappr/precache-manifest.5463fbf7ab15f9d4325bcfd5959757bf.js",
+    "precache-manifest.fe24a266d14a2ab54935cc8712732023.js": "/pappr/precache-manifest.fe24a266d14a2ab54935cc8712732023.js",
     "service-worker.js": "/pappr/service-worker.js",
-    "static/css/main.45cbbad0.chunk.css.map": "/pappr/static/css/main.45cbbad0.chunk.css.map",
+    "static/css/main.ffdb62b3.chunk.css.map": "/pappr/static/css/main.ffdb62b3.chunk.css.map",
     "static/js/2.7f20bc93.chunk.js.LICENSE.txt": "/pappr/static/js/2.7f20bc93.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6b294b58.js",
     "static/js/2.7f20bc93.chunk.js",
-    "static/css/main.45cbbad0.chunk.css",
-    "static/js/main.48eb51f6.chunk.js"
+    "static/css/main.ffdb62b3.chunk.css",
+    "static/js/main.b5a726c0.chunk.js"
   ]
 }
