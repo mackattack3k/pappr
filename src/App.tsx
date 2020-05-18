@@ -13,6 +13,34 @@ import {devLog} from "./utils";
 import {CLIENT_ID, corsPrefix, REDIRECT_URL} from "./config";
 import Home from "./Home";
 
+export const updateBearer = async () => {
+    const access = window.localStorage.getItem('access')
+    if (!access) {
+        devLog('TODO: Clear access since we failed to get it. Need reAuth')
+        return
+    }
+    const {refresh_token} = JSON.parse(access);
+    const fetchUpdate = await fetch(`${corsPrefix}https://www.reddit.com/api/v1/access_token`, {
+        method: "POST",
+        headers: {
+            Authorization: `Basic ${btoa(CLIENT_ID + ":")}`,
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: stringify({
+            grant_type: 'refresh_token',
+            refresh_token
+        })
+    })
+    const parsedResponse = await fetchUpdate.json()
+    const expiryDate = new Date();
+    expiryDate.setSeconds(expiryDate.getSeconds() + parsedResponse.expires_in);
+    window.localStorage.setItem('access', JSON.stringify({
+        ...parsedResponse,
+        refresh_token,
+        expiryDate
+    }));
+}
+
 const Auth = () => {
     let location = useLocation();
     const history = useHistory();
@@ -32,8 +60,13 @@ const Auth = () => {
             })
         })
         const parsedResponse = await fetchBearer.json()
-        devLog(parsedResponse);
-        window.localStorage.setItem('access', JSON.stringify(parsedResponse));
+        devLog(`Get bearer response ${parsedResponse}`);
+        const expiryDate = new Date();
+        expiryDate.setSeconds(expiryDate.getSeconds() + parsedResponse.expires_in);
+        window.localStorage.setItem('access', JSON.stringify({
+            ...parsedResponse,
+            expiryDate
+        }));
         history.push('/')
     }
     getBearer()

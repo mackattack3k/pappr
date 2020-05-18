@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {devLog, randomValueFromArray} from "./utils";
 import {API_URL, CLIENT_ID} from "./config";
+import {updateBearer} from "./App";
 
 interface Post {
     data: {
@@ -36,22 +37,31 @@ export const useRandomHotImage = () => {
     const subs = window.localStorage.getItem('subs');
     let availableSubs = subs ? JSON.parse(subs) : defaultSubs
     const selectedSubreddit = randomValueFromArray(availableSubs)
-    devLog(availableSubs)
     useEffect(() => {
         if (!access) {
             return
         }
+        if (image) {
+            return
+        }
         devLog(`Selected random subreddit ${selectedSubreddit} from ${availableSubs}`)
+        const parsedAccess = JSON.parse(access)
+        const {access_token: accessToken, expiryDate} = parsedAccess;
+        const needsAccessRefresh = (new Date(expiryDate) < new Date())
         const fetchHot = async () => {
             devLog('useEffect start fetch')
             devLog(access)
-            const accessToken = JSON.parse(access).access_token
             const image = await fetchImage(selectedSubreddit, accessToken)
             setFoundImage(image)
             devLog('useEffect done')
         }
+        if (needsAccessRefresh ||true) {
+            devLog('Needs update of bearer')
+            updateBearer().then(fetchHot)
+            return
+        }
         fetchHot().catch(devLog)
-    }, [access, availableSubs])
+    }, [access, availableSubs, selectedSubreddit, image])
     return {
         image,
         isLoading: !image,
