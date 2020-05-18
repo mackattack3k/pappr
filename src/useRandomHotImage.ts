@@ -38,7 +38,23 @@ const fetchImage = async (fromSubreddit: string, accessToken: string) => {
   }
 };
 
-const defaultSubs = ["earthporn", "wallpapers"];
+const defaultSubs = [
+  "earthporn",
+  "wallpapers",
+  "EarthPorn",
+  "CityPorn",
+  "SkyPorn",
+  "WeatherPorn",
+  "BotanicalPorn",
+  "LakePorn",
+  "VillagePorn",
+  "BeachPorn",
+  "WaterPorn",
+  "SpacePorn",
+  "multiwall",
+  "wallpapers",
+  "wallpaper",
+];
 export const useRandomHotImage = () => {
   const [image, setFoundImage] = useState<string>();
   const access = window.localStorage.getItem("access");
