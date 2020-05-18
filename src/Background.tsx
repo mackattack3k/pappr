@@ -12,9 +12,14 @@ const Background = () => {
     );
   }
   if (hotImage.image === "nodata") {
+    const clearSavedData = () => {
+      localStorage.clear();
+      window.location.reload();
+    };
     return (
       <div className="loading">
         <h1>Error getting image</h1>
+        <button onClick={clearSavedData}>Clear saved data</button>
       </div>
     );
   }
