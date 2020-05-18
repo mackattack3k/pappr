@@ -11,13 +11,21 @@ interface Post {
 
 const fetchImage = async (fromSubreddit: string, accessToken: string) => {
   try {
+    if (!accessToken) {
+      devLog(`Tried to fetch image without access token (${accessToken})`);
+      return;
+    }
     const r = await fetch(`${API_URL}r/${fromSubreddit}/hot`, {
       headers: {
         Authorization: `bearer ${accessToken}`,
         "User-Agent": `Web:${CLIENT_ID}:0.0.1 (by /u/mackattack3k)`,
       },
     });
-    const jsonR = await JSON.parse(await r.text());
+    const jsonR = await r.json();
+    if (jsonR.error) {
+      devLog(jsonR.error);
+      return "nodata";
+    }
     devLog({ jsonResponse: jsonR });
     const posts = jsonR.data.children as Post[];
     devLog({ allPosts: posts });

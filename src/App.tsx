@@ -16,10 +16,18 @@ import Home from "./Home";
 export const updateBearer = async () => {
   const access = window.localStorage.getItem("access");
   if (!access) {
-    devLog("TODO: Clear access since we failed to get it. Need reAuth");
+    devLog("Clear access since we failed to get it. Need reAuth");
+    localStorage.clear();
+    window.location.reload();
     return;
   }
   const { refresh_token } = JSON.parse(access);
+  if (!refresh_token) {
+    devLog(`No refresh token. Needs re-authentication`);
+    localStorage.clear();
+    window.location.reload();
+    return;
+  }
   const fetchUpdate = await fetch(
     `${corsPrefix}https://www.reddit.com/api/v1/access_token`,
     {
@@ -70,6 +78,10 @@ const Auth = () => {
     );
     const parsedResponse = await fetchBearer.json();
     devLog(`Get bearer response ${parsedResponse}`);
+    if (parsedResponse.error) {
+      devLog(`Couldn't get initial bearer token ${parsedResponse}`);
+      return;
+    }
     const expiryDate = new Date();
     expiryDate.setSeconds(expiryDate.getSeconds() + parsedResponse.expires_in);
     window.localStorage.setItem(
