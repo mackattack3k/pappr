@@ -16,3 +16,4 @@ or use your account in any other way.
 - [ ] Show hyperlink to current wallpaper reddit post
 - [ ] Handle non image posts
 - [ ] Allow user to change what subreddits to use
+- [ ] Maybe cache?
