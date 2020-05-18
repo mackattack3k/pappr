@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { devLog, randomValueFromArray } from "./utils";
-import { API_URL, CLIENT_ID } from "./config";
+import { API_URL } from "./config";
 import { updateBearer } from "./App";
 
 interface Post {
@@ -18,7 +18,7 @@ const fetchImage = async (fromSubreddit: string, accessToken: string) => {
     const r = await fetch(`${API_URL}r/${fromSubreddit}/hot`, {
       headers: {
         Authorization: `bearer ${accessToken}`,
-        "User-Agent": `Web:${CLIENT_ID}:0.0.1 (by /u/mackattack3k)`,
+        //"User-Agent": `Web:${CLIENT_ID}:0.0.1 (by /u/mackattack3k)`,
       },
     });
     const jsonR = await r.json();
