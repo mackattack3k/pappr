@@ -39,8 +39,6 @@ const fetchImage = async (fromSubreddit: string, accessToken: string) => {
 };
 
 const defaultSubs = [
-  "earthporn",
-  "wallpapers",
   "EarthPorn",
   "CityPorn",
   "SkyPorn",
