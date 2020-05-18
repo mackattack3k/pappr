@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "39b6d608cde462c3cba6864ea6e7e278",
+    "revision": "59ba5eff893f5285865d17f40d656b2a",
     "url": "/pappr/index.html"
   },
   {
-    "revision": "1b289c2d7fcd3fa06469",
-    "url": "/pappr/static/css/main.05946047.chunk.css"
+    "revision": "8a5a913d806d0d7ce22d",
+    "url": "/pappr/static/css/main.9e3e794b.chunk.css"
   },
   {
     "revision": "287e41a300c7639802f7",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pappr/static/js/2.7f20bc93.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1b289c2d7fcd3fa06469",
-    "url": "/pappr/static/js/main.23f88dc6.chunk.js"
+    "revision": "8a5a913d806d0d7ce22d",
+    "url": "/pappr/static/js/main.8e35c44b.chunk.js"
   },
   {
     "revision": "b747aebd0fef40323e75",
