@@ -57,7 +57,7 @@ export const useRandomHotImage = () => {
       setFoundImage(image);
       devLog("useEffect done");
     };
-    if (needsAccessRefresh || true) {
+    if (needsAccessRefresh) {
       devLog("Needs update of bearer");
       updateBearer().then(fetchHot);
       return;
