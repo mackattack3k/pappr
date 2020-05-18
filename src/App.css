@@ -39,6 +39,7 @@ body,
   flex-direction: column;
   padding: 1rem;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .link {
@@ -57,4 +58,5 @@ body,
   outline: none;
   font-size: 1.2rem;
   color: #c4c9cf;
+  text-align: center;
 }
